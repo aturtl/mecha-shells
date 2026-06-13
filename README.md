@@ -12,7 +12,7 @@
 <h3>Visuals</h3>
 
 - [Videos](docs/videos)
-- [Screenshots](docs/images)
+- [Screenshots](docs/screenshots)
 
 <h2>Made for Godot Wild Jam #94</h2>
 
