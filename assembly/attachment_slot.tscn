@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6h4fp7opvgps"]
 
-[ext_resource type="Script" uid="uid://c70fpoq54likh" path="res://assembly/attachment_slot.gd" id="1_a2v4b"]
-[ext_resource type="Script" uid="uid://cwas3bc353m2s" path="res://assembly/slot_area.gd" id="2_vnavf"]
+[ext_resource type="Script" uid="uid://c70fpoq54likh" path="res://assembly/attachment_slot.gd" id="1_sady7"]
+[ext_resource type="Script" uid="uid://cwas3bc353m2s" path="res://assembly/slot_area.gd" id="2_lfc6y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i5r4i"]
 radius = 5.0
 
 [node name="Attachment" type="Node2D"]
-script = ExtResource("1_a2v4b")
+script = ExtResource("1_sady7")
 
 [node name="SlotArea" type="Area2D" parent="."]
-script = ExtResource("2_vnavf")
+script = ExtResource("2_lfc6y")
 metadata/_custom_type_script = "uid://cwas3bc353m2s"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlotArea"]

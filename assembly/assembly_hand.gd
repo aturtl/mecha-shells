@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var hand_default: Image
+@export var hand_default: Resource
 @onready var interact_area: Area2D = $InteractArea
 
 var selected_area: Area2D = null
@@ -8,7 +8,7 @@ var selected_area: Area2D = null
 func _ready():
 	Input.set_custom_mouse_cursor(hand_default)
 
-func _process(delta):
+func _physics_process(delta):
 	interact_area.position = get_global_mouse_position()
 	if not selected_area and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		print("ok")

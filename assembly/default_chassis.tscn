@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccpudey38trpo"]
 
 [ext_resource type="Texture2D" uid="uid://2fgc0xot3j7h" path="res://assembly/prototype_chasis.png" id="1_6ci2l"]
-[ext_resource type="PackedScene" uid="uid://b6h4fp7opvgps" path="res://assembly/attachments/attachment.tscn" id="2_qnurq"]
+[ext_resource type="PackedScene" uid="uid://b6h4fp7opvgps" path="res://assembly/attachment_slot.tscn" id="2_qnurq"]
 
 [node name="DefaultChassis" type="Node2D"]
 
@@ -10,23 +10,23 @@ position = Vector2(-22, -91)
 scale = Vector2(8, 8)
 texture = ExtResource("1_6ci2l")
 
-[node name="AttachmentPoints" type="Node2D" parent="."]
+[node name="AttachmentSlots" type="Node2D" parent="."]
 
-[node name="Attachment" parent="AttachmentPoints" instance=ExtResource("2_qnurq")]
+[node name="AttachmentSlot" parent="AttachmentSlots" instance=ExtResource("2_qnurq")]
 position = Vector2(-141, -152)
 
-[node name="Attachment2" parent="AttachmentPoints" instance=ExtResource("2_qnurq")]
+[node name="AttachmentSlot2" parent="AttachmentSlots" instance=ExtResource("2_qnurq")]
 position = Vector2(-75, -14)
 type = 3
 
-[node name="Attachment3" parent="AttachmentPoints" instance=ExtResource("2_qnurq")]
+[node name="AttachmentSlot3" parent="AttachmentSlots" instance=ExtResource("2_qnurq")]
 position = Vector2(116, -7)
 type = 3
 
-[node name="Attachment4" parent="AttachmentPoints" instance=ExtResource("2_qnurq")]
+[node name="AttachmentSlot4" parent="AttachmentSlots" instance=ExtResource("2_qnurq")]
 position = Vector2(120, -130)
 type = 2
 
-[node name="Attachment5" parent="AttachmentPoints" instance=ExtResource("2_qnurq")]
+[node name="AttachmentSlot5" parent="AttachmentSlots" instance=ExtResource("2_qnurq")]
 position = Vector2(1, -108)
 type = 1

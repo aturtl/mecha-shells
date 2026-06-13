@@ -1,16 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl05xqe68w5bc"]
+[gd_scene load_steps=7 format=3 uid="uid://cl05xqe68w5bc"]
 
 [ext_resource type="PackedScene" uid="uid://ccpudey38trpo" path="res://assembly/default_chassis.tscn" id="1_4s7fl"]
 [ext_resource type="Texture2D" uid="uid://dqt8exjsvy4j1" path="res://assembly/assembly_hand.png" id="2_08n57"]
 [ext_resource type="Texture2D" uid="uid://bmskc4idnkqna" path="res://icon.svg" id="3_0ja4x"]
 [ext_resource type="Script" uid="uid://ehl2mjgwbf1u" path="res://assembly/assembly_hand.gd" id="4_08n57"]
-[ext_resource type="Script" uid="uid://bcs6k6biogycg" path="res://assembly/attachment.gd" id="5_0ja4x"]
-[ext_resource type="Script" uid="uid://b8w0r3n5d05j2" path="res://assembly/drop_area.gd" id="6_hl11m"]
+[ext_resource type="PackedScene" uid="uid://bn8tikihxgpsa" path="res://assembly/attachment.tscn" id="5_0ja4x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3d87l"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0ja4x"]
-radius = 45.0444
 
 [node name="TurtleAssembly" type="Node2D"]
 
@@ -63,17 +59,48 @@ offset_bottom = 305.0
 texture_normal = ExtResource("3_0ja4x")
 stretch_mode = 0
 
-[node name="Attachment" type="Node2D" parent="."]
-script = ExtResource("5_0ja4x")
-metadata/_custom_type_script = "uid://bcs6k6biogycg"
+[node name="AttachmentHead" parent="." instance=ExtResource("5_0ja4x")]
+position = Vector2(200, -113)
 
-[node name="Sprite" type="Sprite2D" parent="Attachment"]
-position = Vector2(-3.8147e-06, -3.8147e-06)
-scale = Vector2(0.34375, 0.34375)
-texture = ExtResource("3_0ja4x")
+[node name="Sprite" parent="AttachmentHead" index="0"]
+position = Vector2(-37.5, -3.8147e-06)
+scale = Vector2(0.929688, 0.34375)
 
-[node name="DropArea" type="Area2D" parent="Attachment"]
-script = ExtResource("6_hl11m")
+[node name="AttachmentTail" parent="." instance=ExtResource("5_0ja4x")]
+position = Vector2(349, -119)
+connect_to = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attachment/DropArea"]
-shape = SubResource("CircleShape2D_0ja4x")
+[node name="Sprite" parent="AttachmentTail" index="0"]
+position = Vector2(16.6, -12.055)
+rotation = -5.27613
+scale = Vector2(0.0859373, 0.34375)
+
+[node name="AttachmentFoot" parent="." instance=ExtResource("5_0ja4x")]
+position = Vector2(480, -73)
+connect_to = 3
+
+[node name="Sprite" parent="AttachmentFoot" index="0"]
+position = Vector2(-0.239994, 14)
+scale = Vector2(0.18375, 0.34375)
+
+[node name="AttachmentFoot2" parent="." instance=ExtResource("5_0ja4x")]
+position = Vector2(457, -183)
+connect_to = 3
+
+[node name="Sprite" parent="AttachmentFoot2" index="0"]
+position = Vector2(-0.239994, 14)
+scale = Vector2(0.18375, 0.34375)
+
+[node name="AttachmentShell" parent="." instance=ExtResource("5_0ja4x")]
+position = Vector2(326, -14)
+connect_to = 1
+
+[node name="Sprite" parent="AttachmentShell" index="0"]
+position = Vector2(0.499999, -25)
+scale = Vector2(0.898437, 0.40625)
+
+[editable path="AttachmentHead"]
+[editable path="AttachmentTail"]
+[editable path="AttachmentFoot"]
+[editable path="AttachmentFoot2"]
+[editable path="AttachmentShell"]
