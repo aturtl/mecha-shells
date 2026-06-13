@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://cl05xqe68w5bc"]
 
-[ext_resource type="PackedScene" uid="uid://ccpudey38trpo" path="res://assembly/default_chassis.tscn" id="1_4s7fl"]
-[ext_resource type="Texture2D" uid="uid://dqt8exjsvy4j1" path="res://assembly/assembly_hand.png" id="2_08n57"]
+[ext_resource type="PackedScene" uid="uid://ccpudey38trpo" path="res://assembly/chasses/default_chassis.tscn" id="1_4s7fl"]
+[ext_resource type="Texture2D" uid="uid://dqt8exjsvy4j1" path="res://assembly/assembly_hand/assembly_hand.png" id="2_08n57"]
 [ext_resource type="Texture2D" uid="uid://bmskc4idnkqna" path="res://icon.svg" id="3_0ja4x"]
-[ext_resource type="Script" uid="uid://ehl2mjgwbf1u" path="res://assembly/assembly_hand.gd" id="4_08n57"]
-[ext_resource type="Script" uid="uid://dlg0fx3nqyqy2" path="res://scenes/attachment_buttons.gd" id="5_0ja4x"]
+[ext_resource type="Script" uid="uid://ehl2mjgwbf1u" path="res://assembly/assembly_hand/assembly_hand.gd" id="4_08n57"]
+[ext_resource type="Script" uid="uid://dlg0fx3nqyqy2" path="res://assembly/attachments/attachment_buttons.gd" id="5_0ja4x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3d87l"]
 

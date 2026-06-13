@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqt8exjsvy4j1"
-path="res://.godot/imported/assembly_hand.png-e27b0ae34771029c31df2b9e1ceded5c.ctex"
+uid="uid://2fgc0xot3j7h"
+path="res://.godot/imported/prototype_chasis.png-3a06c70c12dbf48349a6ad1301cc68fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assembly/assembly_hand.png"
-dest_files=["res://.godot/imported/assembly_hand.png-e27b0ae34771029c31df2b9e1ceded5c.ctex"]
+source_file="res://assembly/chasses/prototype_chasis.png"
+dest_files=["res://.godot/imported/prototype_chasis.png-3a06c70c12dbf48349a6ad1301cc68fa.ctex"]
 
 [params]
 

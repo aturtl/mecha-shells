@@ -13,12 +13,13 @@ config_version=5
 config/name="godot wild jam"
 run/main_scene="uid://c8ei6mxeiwijv"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=120
 config/icon="res://icon.svg"
 config/canvas_textures/default_texture_filter=0
 
 [autoload]
 
-DefaultData="*res://data/default_data.gd"
+DefaultData="*res://data/player_data/default_data.gd"
 GlobalData="*res://data/global_data.gd"
 
 [rendering]

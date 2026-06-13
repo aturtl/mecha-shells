@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8ei6mxeiwijv"]
 
-[ext_resource type="Script" uid="uid://cjl24fr2nc7im" path="res://scenes/btn_assembly.gd" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://cjl24fr2nc7im" path="res://scenes/open_assembly.gd" id="1_nnsk1"]
 
 [node name="World" type="Node2D"]
 

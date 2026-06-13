@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bn8tikihxgpsa"]
 
-[ext_resource type="Script" uid="uid://bcs6k6biogycg" path="res://assembly/attachment.gd" id="1_vnavf"]
+[ext_resource type="Script" uid="uid://bcs6k6biogycg" path="res://assembly/attachments/attachment.gd" id="1_vnavf"]
 [ext_resource type="Texture2D" uid="uid://bmskc4idnkqna" path="res://icon.svg" id="2_i5r4i"]
-[ext_resource type="Script" uid="uid://b8w0r3n5d05j2" path="res://assembly/drop_area.gd" id="3_cfh1h"]
+[ext_resource type="Script" uid="uid://b8w0r3n5d05j2" path="res://assembly/areas/drop_area.gd" id="3_cfh1h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ja4x"]
 radius = 45.0444

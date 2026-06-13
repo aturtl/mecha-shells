@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccpudey38trpo"]
+[gd_scene load_steps=4 format=3 uid="uid://ccpudey38trpo"]
 
-[ext_resource type="Texture2D" uid="uid://2fgc0xot3j7h" path="res://assembly/prototype_chasis.png" id="1_6ci2l"]
-[ext_resource type="PackedScene" uid="uid://b6h4fp7opvgps" path="res://assembly/attachment_slot.tscn" id="2_qnurq"]
+[ext_resource type="Texture2D" uid="uid://2fgc0xot3j7h" path="res://assembly/chasses/prototype_chasis.png" id="1_6ci2l"]
+[ext_resource type="Script" uid="uid://c1x455wt77cge" path="res://assembly/attachments/attachment_slots_holder.gd" id="2_8gqy2"]
+[ext_resource type="PackedScene" uid="uid://b6h4fp7opvgps" path="res://assembly/attachments/attachment_slot.tscn" id="2_qnurq"]
 
 [node name="DefaultChassis" type="Node2D"]
 
@@ -11,6 +12,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("1_6ci2l")
 
 [node name="AttachmentSlots" type="Node2D" parent="."]
+script = ExtResource("2_8gqy2")
 
 [node name="AttachmentSlot" parent="AttachmentSlots" instance=ExtResource("2_qnurq")]
 position = Vector2(-141, -152)

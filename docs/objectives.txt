@@ -16,3 +16,7 @@ Roadmap (rough):
 	6/18: Backgrounds, spritework
 	6/19: Spritework, polish
 	6/20: Final polish, Upload to Itch
+
+QOL:
+	Make attachment flow behind mouse
+	Interactive mouse

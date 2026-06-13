@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://boe5v1ffi4pn4"]
 
-[ext_resource type="PackedScene" uid="uid://bn8tikihxgpsa" path="res://assembly/attachment.tscn" id="1_5402b"]
+[ext_resource type="PackedScene" uid="uid://bn8tikihxgpsa" path="res://assembly/attachments/attachment.tscn" id="1_5402b"]
 
 [node name="AttachmentsData" type="Node2D"]
 
