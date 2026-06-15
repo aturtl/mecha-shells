@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl05xqe68w5bc"]
+[gd_scene load_steps=8 format=3 uid="uid://cl05xqe68w5bc"]
 
-[ext_resource type="PackedScene" uid="uid://ccpudey38trpo" path="res://assembly/chasses/default_chassis.tscn" id="1_4s7fl"]
+[ext_resource type="Script" uid="uid://cd3c688d1tslm" path="res://scenes/load_assembly_chassis.gd" id="1_hl11m"]
 [ext_resource type="Texture2D" uid="uid://dqt8exjsvy4j1" path="res://assembly/assembly_hand/assembly_hand.png" id="2_08n57"]
 [ext_resource type="Texture2D" uid="uid://bmskc4idnkqna" path="res://icon.svg" id="3_0ja4x"]
 [ext_resource type="Script" uid="uid://ehl2mjgwbf1u" path="res://assembly/assembly_hand/assembly_hand.gd" id="4_08n57"]
-[ext_resource type="Script" uid="uid://dlg0fx3nqyqy2" path="res://assembly/attachments/attachment_buttons.gd" id="5_0ja4x"]
+[ext_resource type="Script" uid="uid://dlg0fx3nqyqy2" path="res://assembly/attachments/attachment_manager.gd" id="5_0ja4x"]
+[ext_resource type="Script" uid="uid://bn8xjmftaluc1" path="res://scenes/loading_screen.gd" id="6_hl11m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3d87l"]
 
@@ -12,9 +13,15 @@
 
 [node name="Chassis" type="Node2D" parent="."]
 unique_name_in_owner = true
+script = ExtResource("1_hl11m")
 
-[node name="DefaultChassis" parent="Chassis" instance=ExtResource("1_4s7fl")]
-position = Vector2(-1, 91)
+[node name="AttachmentsManager" type="Node" parent="." node_paths=PackedStringArray("head_list", "shell_list", "tail_list", "foot_list")]
+unique_name_in_owner = true
+script = ExtResource("5_0ja4x")
+head_list = NodePath("../UI/AttachmentLayout/Head")
+shell_list = NodePath("../UI/AttachmentLayout/Shell")
+tail_list = NodePath("../UI/AttachmentLayout/Tail")
+foot_list = NodePath("../UI/AttachmentLayout/Foot")
 
 [node name="Hand" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -32,7 +39,7 @@ shape = SubResource("CircleShape2D_3d87l")
 layout_mode = 3
 anchors_preset = 0
 
-[node name="AttachmentBtns" type="Control" parent="UI" node_paths=PackedStringArray("head_list", "shell_list", "tail_list", "foot_list")]
+[node name="AttachmentBtns" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -541.0
@@ -40,11 +47,6 @@ offset_top = 216.0
 offset_right = -13.0
 offset_bottom = 344.0
 scale = Vector2(1, 0.6)
-script = ExtResource("5_0ja4x")
-head_list = NodePath("../AttachmentLayout/ListHead")
-shell_list = NodePath("../AttachmentLayout/ListShell")
-tail_list = NodePath("../AttachmentLayout/ListTail")
-foot_list = NodePath("../AttachmentLayout/ListFoot")
 
 [node name="BtnHead" type="TextureButton" parent="UI/AttachmentBtns"]
 layout_mode = 0
@@ -90,38 +92,6 @@ offset_top = 112.0
 offset_right = -541.0
 offset_bottom = 112.0
 
-[node name="ListHead" type="ScrollContainer" parent="UI/AttachmentLayout"]
-layout_mode = 0
-offset_right = 525.0
-offset_bottom = 94.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/AttachmentLayout/ListHead"]
-layout_mode = 2
-
-[node name="ListShell" type="ScrollContainer" parent="UI/AttachmentLayout"]
-layout_mode = 0
-offset_right = 525.0
-offset_bottom = 94.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/AttachmentLayout/ListShell"]
-layout_mode = 2
-
-[node name="ListTail" type="ScrollContainer" parent="UI/AttachmentLayout"]
-layout_mode = 0
-offset_right = 525.0
-offset_bottom = 94.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/AttachmentLayout/ListTail"]
-layout_mode = 2
-
-[node name="ListFoot" type="ScrollContainer" parent="UI/AttachmentLayout"]
-layout_mode = 0
-offset_right = 525.0
-offset_bottom = 94.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/AttachmentLayout/ListFoot"]
-layout_mode = 2
-
 [node name="ScrollBackground" type="TextureRect" parent="UI/AttachmentLayout"]
 visible = false
 layout_mode = 0
@@ -130,10 +100,67 @@ offset_bottom = 94.0
 texture = ExtResource("3_0ja4x")
 expand_mode = 1
 
+[node name="Head" type="Control" parent="UI/AttachmentLayout"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ListHead" type="ScrollContainer" parent="UI/AttachmentLayout/Head"]
+layout_mode = 0
+offset_right = 525.0
+offset_bottom = 94.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/AttachmentLayout/Head/ListHead"]
+layout_mode = 2
+
+[node name="Tail" type="Control" parent="UI/AttachmentLayout"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ListTail" type="ScrollContainer" parent="UI/AttachmentLayout/Tail"]
+layout_mode = 0
+offset_right = 525.0
+offset_bottom = 94.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/AttachmentLayout/Tail/ListTail"]
+layout_mode = 2
+
+[node name="Shell" type="Control" parent="UI/AttachmentLayout"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ListShell" type="ScrollContainer" parent="UI/AttachmentLayout/Shell"]
+layout_mode = 0
+offset_right = 525.0
+offset_bottom = 94.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/AttachmentLayout/Shell/ListShell"]
+layout_mode = 2
+
+[node name="Foot" type="Control" parent="UI/AttachmentLayout"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ListFoot" type="ScrollContainer" parent="UI/AttachmentLayout/Foot"]
+layout_mode = 0
+offset_right = 525.0
+offset_bottom = 94.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/AttachmentLayout/Foot/ListFoot"]
+layout_mode = 2
+
 [node name="Attachments" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[connection signal="button_down" from="UI/AttachmentBtns/BtnHead" to="UI/AttachmentBtns" method="_on_head_button_down"]
-[connection signal="button_down" from="UI/AttachmentBtns/BtnShell" to="UI/AttachmentBtns" method="_on_shell_button_down"]
-[connection signal="button_down" from="UI/AttachmentBtns/BtnTail" to="UI/AttachmentBtns" method="_on_tail_button_down"]
-[connection signal="button_down" from="UI/AttachmentBtns/BtnFoot" to="UI/AttachmentBtns" method="_on_foot_button_down"]
+[node name="LoadingScreen" type="Sprite2D" parent="."]
+scale = Vector2(21.7315, 7.2515)
+texture = ExtResource("3_0ja4x")
+script = ExtResource("6_hl11m")
+
+[connection signal="button_down" from="UI/AttachmentBtns/BtnHead" to="AttachmentsManager" method="_on_head_button_down"]
+[connection signal="button_down" from="UI/AttachmentBtns/BtnShell" to="AttachmentsManager" method="_on_shell_button_down"]
+[connection signal="button_down" from="UI/AttachmentBtns/BtnTail" to="AttachmentsManager" method="_on_tail_button_down"]
+[connection signal="button_down" from="UI/AttachmentBtns/BtnFoot" to="AttachmentsManager" method="_on_foot_button_down"]

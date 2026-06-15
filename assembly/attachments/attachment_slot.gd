@@ -36,6 +36,4 @@ func on_attachment_detach():
 		var attachment_array = SESSIONSTATS.stats.owned_attachments[connected_attachment.owned_index]
 		attachment_array[1] = -1
 		SESSIONSTATS.save_stats()
-	else:
-		print("no attachment")
 	connected_attachment = null

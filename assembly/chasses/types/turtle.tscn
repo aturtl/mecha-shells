@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccpudey38trpo"]
+
+[ext_resource type="Script" uid="uid://dtf28fwr5cvso" path="res://assembly/chasses/chassis.gd" id="1_bnbbm"]
+[ext_resource type="Script" uid="uid://c1x455wt77cge" path="res://assembly/attachments/attachment_slots_holder.gd" id="2_8gqy2"]
+[ext_resource type="Texture2D" uid="uid://blunw0qqgihs5" path="res://assembly/chasses/regular_turtle_chassis-Sheet.png" id="2_bnbbm"]
+[ext_resource type="PackedScene" uid="uid://b6h4fp7opvgps" path="res://assembly/attachments/attachment_slot.tscn" id="2_qnurq"]
+
+[node name="DefaultChassis" type="Node2D"]
+z_index = 2
+script = ExtResource("1_bnbbm")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-13, -24)
+scale = Vector2(8, 8)
+texture = ExtResource("2_bnbbm")
+vframes = 8
+frame = 2
+
+[node name="AttachmentSlots" type="Node2D" parent="."]
+script = ExtResource("2_8gqy2")
+
+[node name="AttachmentSlot" parent="AttachmentSlots" instance=ExtResource("2_qnurq")]
+position = Vector2(-62, -8)
+
+[node name="AttachmentSlot2" parent="AttachmentSlots" instance=ExtResource("2_qnurq")]
+position = Vector2(-47, 7)
+type = 3
+
+[node name="AttachmentSlot3" parent="AttachmentSlots" instance=ExtResource("2_qnurq")]
+position = Vector2(49, 7)
+type = 3
+
+[node name="AttachmentSlot4" parent="AttachmentSlots" instance=ExtResource("2_qnurq")]
+position = Vector2(67, 5)
+type = 2
+
+[node name="AttachmentSlot5" parent="AttachmentSlots" instance=ExtResource("2_qnurq")]
+position = Vector2(-6, 9)
+type = 1

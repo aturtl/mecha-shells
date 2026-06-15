@@ -30,3 +30,12 @@ GODOT WILD JAM DEVLOG
 		- Battle
 		- Shop
 		- Overworld
+
+6/14:
+	- Battle mechanics
+		- Randomized actions with delays from expandable list
+		- Screen shake shader
+	- Added chassis loading to assembly & battle
+	- Separated how attachments function based on asssembly/battle
+		- (Battle functions not started yet)
+	- Updated roadmap

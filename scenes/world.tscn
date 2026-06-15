@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8ei6mxeiwijv"]
+[gd_scene load_steps=3 format=3 uid="uid://c8ei6mxeiwijv"]
 
 [ext_resource type="Script" uid="uid://cjl24fr2nc7im" path="res://scenes/open_assembly.gd" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://26j5tknsk67j" path="res://scenes/open_battle.gd" id="2_rwgxs"]
 
 [node name="World" type="Node2D"]
 
@@ -12,6 +13,15 @@ offset_bottom = -283.0
 text = "Assembly"
 script = ExtResource("1_nnsk1")
 
+[node name="btn_battle" type="Button" parent="."]
+offset_left = -572.0
+offset_top = -275.0
+offset_right = -411.0
+offset_bottom = -237.0
+text = "Battle"
+script = ExtResource("2_rwgxs")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="button_down" from="btn_assembly" to="btn_assembly" method="_on_button_down"]
+[connection signal="button_down" from="btn_battle" to="btn_battle" method="_on_button_down"]

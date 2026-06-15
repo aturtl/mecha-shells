@@ -6,17 +6,33 @@ class_name Attachment extends Node2D
 
 @onready var connect_to_info = $ConnectTo
 
+enum Type {
+	UNASSIGNED,
+	ASSEMBLY,
+	BATTLE
+}
+
+var type = Type.UNASSIGNED
+
+var id_name: String
+var owned_index: int
+
+# ASSEMBLY
+
 var attached: bool = false
 var dragging: bool = false
 
 var drag_offset: Vector2
 
-var id_name: String
-var owned_index: int
-
 signal detached
 
+# BATTLE
+
 func _physics_process(delta):
+	if Type.ASSEMBLY:
+		manage_dragging_and_dropping()
+
+func manage_dragging_and_dropping():
 	var was_dragging = dragging
 	
 	dragging = (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and GlobalData.selected_mouse_area == drop_area)
@@ -52,7 +68,7 @@ func replace_slot(slot: AttachmentSlot):
 func attach(slot: AttachmentSlot):
 	attached = true
 	replace_slot(slot)
-	position = slot.global_position
+	global_position = slot.global_position
 
 func detach():
 	attached = false

@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="DefaultStats" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="DefaultStats" load_steps=2 format=3 uid="uid://b2lfcicfbu3kx"]
 
-[ext_resource type="Script" path="res://data/stats/default_stats.gd" id="1_yryac"]
+[ext_resource type="Script" uid="uid://b5frhpb7rw53a" path="res://data/stats/default_stats.gd" id="1_yryac"]
 
 [resource]
 script = ExtResource("1_yryac")
-owned_attachments = [["prototype_head", -1], ["prototype_foot", -1], ["prototype_foot", -1], ["prototype_shell", -1], ["prototype_tail", -1], ["turtle_head", 0], ["turtle_legs", 1], ["turtle_legs", 2], ["turtle_shell", 4], ["turtle_tail", 3]]
+equipped_chassis = "turtle"
+owned_chasses = ["turtle"]
+owned_attachments = [["prototype_head", -1], ["prototype_foot", 2], ["prototype_foot", -1], ["prototype_shell", -1], ["prototype_tail", 3], ["turtle_head", 0], ["turtle_legs", -1], ["turtle_legs", 1], ["turtle_shell", 4], ["turtle_tail", -1]]

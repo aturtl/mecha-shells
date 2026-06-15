@@ -9,10 +9,10 @@ Main Goals:
 Roadmap (rough):
 	6/12: Documentation, Assembly Mechanics
 	6/13: Basic sprites (chassis, attachments)
-	6/14: Battle Mechanic, Robot disassembly
-	6/15: Overworld Map, Turtle Levels (Level-up = mutation choice)
-	6/16: Shop Mechanics + Create more chasses & attachments
-	6/17: Turtle care + mutations
+	6/14: Battle Mechanic
+	6/15: Create 12 (3x4) chasses & attachments including functionality
+	6/15: Shop Mechanics, Overworld Map
+	6/17: Turtle care + mutations + levels (Level-up = mutation choice)
 	6/18: Battle Music, Overworld Music, Shop Music (all emphasizing mechanical feeling)
 	6/19: Spritework, polish
 	6/20: QOL, Upload to Itch
@@ -22,3 +22,9 @@ QOL:
 	Make attachment flow behind mouse
 	Interactive mouse
 	Make turtle bob slightly in assembly
+
+Scrapped mechanics & reason:
+	Enemy disassembly
+		- Wanted to have more time for more important mechanics
+		- Turtle can already disassemble (already fits wildcard)
+		- Level ups are enough of an incentive

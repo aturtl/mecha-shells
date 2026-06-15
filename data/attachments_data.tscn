@@ -81,7 +81,7 @@ connect_to = 1
 position = Vector2(-133, 106)
 
 [node name="Sprite" parent="turtle_legs" index="0"]
-z_index = 4
+z_index = 12
 position = Vector2(33, -31)
 scale = Vector2(8, 8)
 texture = ExtResource("2_5404i")
@@ -105,6 +105,7 @@ connect_to = 3
 position = Vector2(43, 108)
 
 [node name="Sprite" parent="turtle_tail" index="0"]
+z_index = 6
 position = Vector2(-80, -32)
 scale = Vector2(8, 8)
 texture = ExtResource("2_5404i")
