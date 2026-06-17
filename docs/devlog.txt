@@ -57,4 +57,13 @@ GODOT WILD JAM DEVLOG
 
 6/16:
 	- Folder reorganization
-	- 
+	- Outsourced assembly attachment functions to its own behavior script
+	- Added battle behaviors
+	- Mech spawning from code with easier customization
+	- Custom collisions for chasses
+	- Spawnpoints
+	- Turned actions into individual classes
+	- Ability to alter actions/modifiers based on equipped attachments
+	- Debug text to show actions being performed
+	- Unique mech stats holding actions, behaviors, attachment, chassis
+	

@@ -7,7 +7,8 @@ class_name Attachment extends Node2D
 @onready var connect_to_info = $ConnectTo
 @onready var sprite = $Sprite
 
-@onready var assembly_behavior: AssemblyBehavior = AssemblyBehavior.new()
+@export var battle_behavior: BattleBehavior
+@export var assembly_behavior: AssemblyBehavior
 
 enum Type {
 	UNASSIGNED,
@@ -34,8 +35,7 @@ var attached: bool = false
 signal detached
 
 func _ready():
-	if type == Type.ASSEMBLY:
-		add_child(assembly_behavior)
+	add_default_behavior()
 	
 	var c = connect_to_info.connect_to
 	var b = BodyParts
@@ -52,6 +52,17 @@ func _ready():
 				sprite.z_index = 9
 	else:
 		z_index = z_index_override
+
+
+func add_default_behavior():
+	if type == Type.ASSEMBLY:
+		if !assembly_behavior:
+			assembly_behavior = AssemblyBehavior.new()
+			add_child(assembly_behavior)
+	if type == Type.BATTLE:
+		if !battle_behavior:
+			battle_behavior = BattleBehavior.new()
+			add_child(battle_behavior)
 
 
 func replace_slot(slot: AttachmentSlot):

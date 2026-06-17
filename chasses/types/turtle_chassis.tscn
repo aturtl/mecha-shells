@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccpudey38trpo"]
+[gd_scene load_steps=6 format=3 uid="uid://ccpudey38trpo"]
 
 [ext_resource type="Script" uid="uid://dtf28fwr5cvso" path="res://chasses/chassis.gd" id="1_bnbbm"]
 [ext_resource type="Script" uid="uid://c1x455wt77cge" path="res://attachments/slots/attachment_slots_holder.gd" id="2_8gqy2"]
 [ext_resource type="Texture2D" uid="uid://blunw0qqgihs5" path="res://sprites/assembly/regular_turtle_chassis-Sheet.png" id="2_bnbbm"]
 [ext_resource type="PackedScene" uid="uid://b6h4fp7opvgps" path="res://attachments/slots/attachment_slot.tscn" id="2_qnurq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4m66"]
+radius = 14.4444
+height = 90.0
 
 [node name="DefaultChassis" type="Node2D"]
 script = ExtResource("1_bnbbm")
@@ -37,3 +41,9 @@ type = 2
 [node name="AttachmentSlot5" parent="AttachmentSlots" instance=ExtResource("2_qnurq")]
 position = Vector2(-6, 9)
 type = 1
+
+[node name="ChassisCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-3.01981e-14, 17)
+rotation = 1.5708
+scale = Vector2(-0.988064, 1.63753)
+shape = SubResource("CapsuleShape2D_g4m66")

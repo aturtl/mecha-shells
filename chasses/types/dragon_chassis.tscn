@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxllshul3dkq6"]
+[gd_scene load_steps=7 format=3 uid="uid://bxllshul3dkq6"]
 
 [ext_resource type="Script" uid="uid://dtf28fwr5cvso" path="res://chasses/chassis.gd" id="1_ugwrq"]
 [ext_resource type="Texture2D" uid="uid://deeq0vjlnqdyd" path="res://sprites/assembly/dragon_full.png" id="2_ugwrq"]
 [ext_resource type="Script" uid="uid://c1x455wt77cge" path="res://attachments/slots/attachment_slots_holder.gd" id="3_q1f6b"]
 [ext_resource type="PackedScene" uid="uid://b6h4fp7opvgps" path="res://attachments/slots/attachment_slot.tscn" id="4_a5ovw"]
 [ext_resource type="Script" uid="uid://bqnme6wq1sn2b" path="res://attachments/special_attachments/special_animate.gd" id="6_a5ovw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xkiue"]
+radius = 40.9413
+height = 222.295
 
 [node name="DefaultChassis" type="Node2D"]
 script = ExtResource("1_ugwrq")
@@ -64,3 +68,9 @@ texture = ExtResource("2_ugwrq")
 hframes = 3
 vframes = 6
 frame = 3
+
+[node name="ChassisCollision" type="CollisionShape2D" parent="."]
+z_index = 12
+position = Vector2(14, -34)
+rotation = 2.27615
+shape = SubResource("CapsuleShape2D_xkiue")
