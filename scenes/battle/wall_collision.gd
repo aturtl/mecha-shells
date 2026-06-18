@@ -1,0 +1,1 @@
+class_name WallCollision extends CollisionShape2D

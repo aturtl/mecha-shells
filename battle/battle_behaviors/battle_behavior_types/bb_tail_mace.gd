@@ -14,6 +14,6 @@ func passive():
 
 
 func modify_mech_stats(mech_stats: MechStats):
-	mech_stats.append_action(ActionSwing.new(), 0)
+	mech_stats.append_action(ActionSwingMace.new(), 0)
 	mech_stats.add_modifier("spd", -1)
 	mech_stats.add_modifier("def", 2)

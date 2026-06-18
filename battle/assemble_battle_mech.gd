@@ -58,3 +58,4 @@ func parent_mech_items():
 	cc.name = "CC"
 	if cc:
 		cc.reparent(mech)
+		mech.chassis_collision = cc

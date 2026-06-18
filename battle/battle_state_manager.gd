@@ -47,6 +47,8 @@ func build_mechs():
 func spawn_mechs():
 	add_child(p_mech)
 	add_child(e_mech)
+	p_mech.begin_action_timer()
+	e_mech.begin_action_timer()
 
 
 func create_mech(setup: MechSetup, spawnpoint: Vector2):

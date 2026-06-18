@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bmskc4idnkqna" path="res://icon.svg" id="1_0yh6x"]
 [ext_resource type="Script" uid="uid://jy3qxy6eduda" path="res://battle/battle_state_manager.gd" id="1_h0kxc"]
-[ext_resource type="Script" uid="uid://o8yf4drbop25" path="res://scenes/battle/wall_body.gd" id="3_agsc7"]
+[ext_resource type="Script" uid="uid://dl0lsle5rbmtq" path="res://battle/mech.gd" id="2_h0kxc"]
+[ext_resource type="Script" uid="uid://o8yf4drbop25" path="res://scenes/battle/wall_area.gd" id="3_agsc7"]
 [ext_resource type="Script" uid="uid://ksu31iubgd46" path="res://battle/assemble_battle_mech.gd" id="3_fh7rg"]
-[ext_resource type="Script" uid="uid://dmh7oiqfbs64t" path="res://scenes/battle/wall_collision.gd" id="4_oiw7q"]
 [ext_resource type="Shader" uid="uid://c7qpdrt6kq4qo" path="res://shaders/screen_shake.gdshader" id="4_pll4o"]
 [ext_resource type="Script" uid="uid://cjdqhxgvlbwf1" path="res://battle/spawnpoint.gd" id="6_fh7rg"]
 [ext_resource type="Script" uid="uid://bu6tlhwbqh7th" path="res://scenes/world/open_world.gd" id="7_pll4o"]
@@ -12,6 +12,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a12nh"]
 size = Vector2(128.306, 126.592)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1qf1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4k1nj"]
 shader = ExtResource("4_pll4o")
@@ -33,56 +35,63 @@ position = Vector2(556, 619)
 scale = Vector2(12.0415, -0.908428)
 texture = ExtResource("1_0yh6x")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ground" unique_id=2095705898]
-collision_layer = 17
-collision_mask = 17
+[node name="Area2D" type="StaticBody2D" parent="Ground" unique_id=2095705898]
+script = ExtResource("3_agsc7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D" unique_id=875693495]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Area2D" unique_id=875693495]
 position = Vector2(0.207619, -0.550415)
 shape = SubResource("RectangleShape2D_a12nh")
 
-[node name="Ceiiling" type="Sprite2D" parent="." unique_id=580775735]
+[node name="Ground4" type="Sprite2D" parent="." unique_id=580775735]
 position = Vector2(613, -53)
 scale = Vector2(12.0415, -0.908428)
 texture = ExtResource("1_0yh6x")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ceiiling" unique_id=1573503552]
-collision_layer = 17
-collision_mask = 17
+[node name="Area2D" type="StaticBody2D" parent="Ground4" unique_id=1573503552]
+script = ExtResource("3_agsc7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiiling/StaticBody2D" unique_id=689183338]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4/Area2D" unique_id=689183338]
 position = Vector2(0.207619, -0.550415)
 shape = SubResource("RectangleShape2D_a12nh")
 
-[node name="Wall" type="Sprite2D" parent="." unique_id=1894182023]
+[node name="Ground2" type="Sprite2D" parent="." unique_id=1894182023]
 position = Vector2(1151, 378)
 scale = Vector2(-0.215623, -9.35077)
 texture = ExtResource("1_0yh6x")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall" unique_id=1371537277]
-collision_layer = 17
-collision_mask = 17
+[node name="Area2D" type="StaticBody2D" parent="Ground2" unique_id=1371537277]
 script = ExtResource("3_agsc7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D" unique_id=1609510295]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Area2D" unique_id=1609510295]
 position = Vector2(0.207619, -0.550415)
 shape = SubResource("RectangleShape2D_a12nh")
-script = ExtResource("4_oiw7q")
 
-[node name="Wall2" type="Sprite2D" parent="." unique_id=193354732]
+[node name="Ground3" type="Sprite2D" parent="." unique_id=193354732]
 position = Vector2(6, 386)
 scale = Vector2(-0.215623, -9.35077)
 texture = ExtResource("1_0yh6x")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall2" unique_id=1792962599]
-collision_layer = 17
-collision_mask = 17
+[node name="Area2D" type="StaticBody2D" parent="Ground3" unique_id=1792962599]
 script = ExtResource("3_agsc7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2/StaticBody2D" unique_id=1013691975]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3/Area2D" unique_id=1013691975]
 position = Vector2(0.207619, -0.550415)
 shape = SubResource("RectangleShape2D_a12nh")
-script = ExtResource("4_oiw7q")
+
+[node name="AssembledMech2" type="CharacterBody2D" parent="." unique_id=1493213802]
+position = Vector2(1035, 231)
+script = ExtResource("2_h0kxc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AssembledMech2" unique_id=698257230]
+scale = Vector2(8.52, 8.52)
+shape = SubResource("CircleShape2D_p1qf1")
+
+[node name="Chassis" type="Node2D" parent="AssembledMech2" unique_id=1011369230]
+
+[node name="Sprite2D" type="Sprite2D" parent="AssembledMech2/Chassis" unique_id=1395059108]
+texture = ExtResource("1_0yh6x")
+
+[node name="ActionTimer" type="Timer" parent="AssembledMech2" unique_id=253921464]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1378595375]
 position = Vector2(581, 311)
