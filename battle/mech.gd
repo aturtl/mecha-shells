@@ -39,6 +39,8 @@ func _ready():
 	for behavior: BattleBehavior in mech_stats.attachment_behaviors:
 		behavior.on_creation()
 	
+	set_behavior_variables()
+	
 	add_child(action_timer)
 	action_timer.timeout.connect(_on_action_timeout)
 	set_new_action_time()
@@ -47,6 +49,8 @@ func _ready():
 func _physics_process(delta):
 	print(name, action_info.move_velocity, velocity)
 	print(get_parent())
+	
+	handle_behavior_passives()
 	
 	if enemy and current_action:
 		handle_actions()
@@ -98,6 +102,20 @@ func handle_actions():
 	
 	if action_info.move_velocity.distance_to(Vector2(0,0)) > max_action_speed: #cap speed
 		action_info.move_velocity = action_info.move_velocity.normalized()*max_action_speed	
+
+
+func set_behavior_variables():
+	var bbs = mech_stats.attachment_behaviors
+	for bb: BattleBehavior in bbs:
+		bb.enemy_mech = enemy
+		bb.mech = self
+
+
+func handle_behavior_passives():
+	var bbs = mech_stats.attachment_behaviors
+	print(bbs, "H7")
+	for bb: BattleBehavior in bbs:
+		bb.passive()
 
 
 func compile_velocities():

@@ -1,21 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn8tikihxgpsa"]
+[gd_scene format=3 uid="uid://bn8tikihxgpsa"]
 
 [ext_resource type="Script" uid="uid://bcs6k6biogycg" path="res://attachments/attachment.gd" id="1_vnavf"]
 [ext_resource type="Texture2D" uid="uid://bmskc4idnkqna" path="res://icon.svg" id="2_i5r4i"]
 [ext_resource type="Script" uid="uid://b8w0r3n5d05j2" path="res://attachments/areas/drop_area.gd" id="3_cfh1h"]
 [ext_resource type="Script" uid="uid://dxmrawxadbil3" path="res://attachments/connect_to.gd" id="4_i5r4i"]
 
-[node name="Attachment" type="Node2D"]
+[node name="Attachment" type="Node2D" unique_id=1624209447]
 script = ExtResource("1_vnavf")
 metadata/_custom_type_script = "uid://bcs6k6biogycg"
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=842876083]
 position = Vector2(-3.8147e-06, -3.8147e-06)
 scale = Vector2(0.34375, 0.34375)
 texture = ExtResource("2_i5r4i")
 
-[node name="DropArea" type="Area2D" parent="."]
+[node name="DropArea" type="Area2D" parent="." unique_id=900023335]
 script = ExtResource("3_cfh1h")
 
-[node name="ConnectTo" type="Node2D" parent="."]
+[node name="ConnectTo" type="Node2D" parent="." unique_id=942248921]
 script = ExtResource("4_i5r4i")

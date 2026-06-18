@@ -11,6 +11,9 @@ extends Node
 var p_mech: Mech
 var e_mech: Mech
 
+@export var p_healthbar: HealthBar
+@export var e_healthbar: HealthBar
+
 func _ready():
 	start_battle()
 	
@@ -21,7 +24,15 @@ func _ready():
 
 func start_battle():
 	build_mechs()
+	setup_displays()
 	spawn_mechs()
+
+
+func setup_displays():
+	p_healthbar.track_health(p_mech)
+	e_healthbar.track_health(e_mech)
+	p_healthbar.displayed = true
+	e_healthbar.displayed = true
 
 
 func build_mechs():

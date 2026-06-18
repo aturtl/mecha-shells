@@ -68,7 +68,8 @@ GODOT WILD JAM DEVLOG
 	- Unique mech stats holding actions, behaviors, attachment, chassis
 	- Updated roadmap
 	- Created apple shell
-	- Smaller ant build (enlarged in assembly)
+	- Smaller ant 
+	build (enlarged in assembly)
 
 6/17:
 	- Upgraded to Godot 4.6.3
@@ -76,3 +77,5 @@ GODOT WILD JAM DEVLOG
 	- Added buttons to go back to world for both battle and assembly scenes (temporary for battle)
 	- Assembly: Made attachments invisible at first for cleanliness
 	- Created plan for attachment attributes in design.txt
+	- Created classes for each battle behavior
+	- Added health bar

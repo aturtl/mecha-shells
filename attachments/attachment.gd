@@ -7,7 +7,7 @@ class_name Attachment extends Node2D
 @onready var connect_to_info = $ConnectTo
 @onready var sprite = $Sprite
 
-@export var battle_behavior: BattleBehavior
+var battle_behavior: BattleBehavior
 @export var assembly_behavior: AssemblyBehavior
 
 enum Type {
@@ -35,7 +35,7 @@ var attached: bool = false
 signal detached
 
 func _ready():
-	add_default_behavior()
+	add_behaviors()
 	
 	var c = connect_to_info.connect_to
 	var b = BodyParts
@@ -54,15 +54,29 @@ func _ready():
 		z_index = z_index_override
 
 
-func add_default_behavior():
-	if type == Type.ASSEMBLY:
-		if !assembly_behavior:
-			assembly_behavior = AssemblyBehavior.new()
-			add_child(assembly_behavior)
+func add_behaviors():
 	if type == Type.BATTLE:
-		if !battle_behavior:
-			battle_behavior = BattleBehavior.new()
-			add_child(battle_behavior)
+		add_battle_behavior()
+	elif type == Type.ASSEMBLY:
+		add_assembly_behavior()
+		
+		
+func add_battle_behavior():
+	if battle_behavior:
+		return
+	for child in get_children():
+		if child is BattleBehavior:
+			print("FOUND BEHAVIOR: ", child.name)
+			battle_behavior = child
+	if !battle_behavior:
+		battle_behavior = BattleBehavior.new()
+		add_child(battle_behavior)
+
+
+func add_assembly_behavior():
+	if !assembly_behavior:
+		assembly_behavior = AssemblyBehavior.new()
+		add_child(assembly_behavior)
 
 
 func replace_slot(slot: AttachmentSlot):
@@ -78,6 +92,7 @@ func attach(slot: AttachmentSlot):
 	global_position = slot.global_position
 	rotation = slot.rotation
 	global_scale = slot.global_scale
+	visible = true
 
 
 func detach():
