@@ -91,3 +91,5 @@ GODOT WILD JAM DEVLOG
 6/18:
 	- Made action_info a variable of Action rather than returning it
 	- Made initial_direction a variable of Action
+	- JSON info for enemies
+	- Win/lose conditions & Screens

@@ -139,6 +139,7 @@ func on_p_hit_wall():
 
 
 func on_p_death():
+	e_mech.death.disconnect(on_e_death)
 	p_mech.death.disconnect(on_p_death)
 	player_lost()
 	print("LOSE")
@@ -146,5 +147,6 @@ func on_p_death():
 
 func on_e_death():
 	e_mech.death.disconnect(on_e_death)
+	p_mech.death.disconnect(on_p_death)
 	player_won()
 	print("WIN")

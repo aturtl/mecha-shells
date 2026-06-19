@@ -26,8 +26,6 @@ func btn_tween(btn):
 
 
 func activate():
-	await ready
-	
 	btn_return.button_down.connect(return_home)
 	
 	print("Win Screen Activated")
