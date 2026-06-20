@@ -111,3 +111,10 @@ GODOT WILD JAM DEVLOG
 		- Chassis switch
 	- Music for battle "chainsaws"
 	- Environmental sounds for world "sunshine"
+	- Turtle Map Sprite
+		- Can walk to world levels
+	- Display level info when turtle walks to level
+	- Start battle button
+	- GlobalCamera class (remains between scenes)
+	- CameraFocus class
+	- Camera follows Map Turtle

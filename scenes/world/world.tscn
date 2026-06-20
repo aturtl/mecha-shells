@@ -4,10 +4,173 @@
 [ext_resource type="Script" uid="uid://dmcm2nj5500f7" path="res://levels/load_world_levels.gd" id="3_v5dby"]
 [ext_resource type="Texture2D" uid="uid://bmskc4idnkqna" path="res://icon.svg" id="4_6m72w"]
 [ext_resource type="Script" uid="uid://cdkeullx7pahb" path="res://levels/world_level.gd" id="4_v5dby"]
+[ext_resource type="Texture2D" uid="uid://bcholeerhrnps" path="res://sprites/map_turtle.png" id="5_v5dby"]
+[ext_resource type="Script" uid="uid://cghbnyhyc64e" path="res://scenes/world/map_turtle.gd" id="6_t5ptc"]
+[ext_resource type="Script" uid="uid://3jo4l0cw1fpr" path="res://scenes/world/level_menu.gd" id="7_bq33v"]
+[ext_resource type="Script" uid="uid://c4277y7n1ja4i" path="res://scenes/world/camera_ui.gd" id="7_j2gmx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2gmx"]
+atlas = ExtResource("5_v5dby")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq33v"]
+atlas = ExtResource("5_v5dby")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5ptc"]
+atlas = ExtResource("5_v5dby")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j2gmx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2gmx")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq33v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5ptc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
 
 [node name="World" type="Node2D" unique_id=227908816]
 
-[node name="btn_assembly" type="Button" parent="." unique_id=1838384579]
+[node name="WorldLevels" type="Node2D" parent="." unique_id=50817969]
+unique_name_in_owner = true
+position = Vector2(601, 347)
+script = ExtResource("3_v5dby")
+
+[node name="factory1" type="Control" parent="WorldLevels" unique_id=420405975]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -287.0
+offset_top = 133.0
+offset_right = -287.0
+offset_bottom = 133.0
+script = ExtResource("4_v5dby")
+level_display = "1"
+name_display = "The beginning"
+metadata/_custom_type_script = "uid://cdkeullx7pahb"
+
+[node name="Button" type="TextureButton" parent="WorldLevels/factory1" unique_id=647747065]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_6m72w")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="factory2" type="Control" parent="WorldLevels" unique_id=1103343948]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -115.0
+offset_top = 78.0
+offset_right = -115.0
+offset_bottom = 78.0
+script = ExtResource("4_v5dby")
+level_display = "2"
+name_display = "The mutant"
+metadata/_custom_type_script = "uid://cdkeullx7pahb"
+
+[node name="Button" type="TextureButton" parent="WorldLevels/factory2" unique_id=1079722252]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_6m72w")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MapTurtle" type="AnimatedSprite2D" parent="." unique_id=1521150692]
+unique_name_in_owner = true
+position = Vector2(483, 324)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_j2gmx")
+animation = &"walk"
+frame_progress = 0.40419438
+script = ExtResource("6_t5ptc")
+
+[node name="LevelMenu" type="Node2D" parent="." unique_id=801998378]
+unique_name_in_owner = true
+script = ExtResource("7_bq33v")
+metadata/_custom_type_script = "uid://c4277y7n1ja4i"
+
+[node name="Start" type="TextureRect" parent="LevelMenu" unique_id=957978580]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 281.0
+offset_top = 524.0
+offset_right = 871.0
+offset_bottom = 625.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="TextureButton" parent="LevelMenu/Start" unique_id=813305243]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_6m72w")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LevelHeader" type="TextureRect" parent="LevelMenu" unique_id=1658655750]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 281.0
+offset_top = 23.0
+offset_right = 871.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="LevelMenu/LevelHeader" unique_id=1915923501]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]LEVEL INFORMATION[/center]"
+
+[node name="Buttons" type="Node2D" parent="." unique_id=1296367312]
+physics_interpolation_mode = 2
+script = ExtResource("7_j2gmx")
+metadata/_custom_type_script = "uid://c4277y7n1ja4i"
+
+[node name="btn_assembly" type="Button" parent="Buttons" unique_id=1838384579]
 offset_left = 28.0
 offset_top = 26.0
 offset_right = 189.0
@@ -15,44 +178,5 @@ offset_bottom = 64.0
 text = "Assembly"
 script = ExtResource("1_sl2e5")
 
-[node name="WorldLevels" type="Node2D" parent="." unique_id=50817969]
-position = Vector2(601, 347)
-script = ExtResource("3_v5dby")
-
-[node name="factory1" type="Node2D" parent="WorldLevels" unique_id=704241437]
-position = Vector2(-287, 133)
-script = ExtResource("4_v5dby")
-
-[node name="Button" type="TextureButton" parent="WorldLevels/factory1" unique_id=647747065]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("4_6m72w")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="factory2" type="Node2D" parent="WorldLevels" unique_id=367235604]
-position = Vector2(-115, 78)
-script = ExtResource("4_v5dby")
-
-[node name="Button" type="TextureButton" parent="WorldLevels/factory2" unique_id=1079722252]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("4_6m72w")
-ignore_texture_size = true
-stretch_mode = 0
-
-[connection signal="button_down" from="btn_assembly" to="btn_assembly" method="_on_button_down"]
+[connection signal="button_down" from="LevelMenu/Start/StartButton" to="WorldLevels" method="_on_start_button_down"]
+[connection signal="button_down" from="Buttons/btn_assembly" to="Buttons/btn_assembly" method="_on_button_down"]

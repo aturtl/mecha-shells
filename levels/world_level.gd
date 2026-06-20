@@ -1,14 +1,27 @@
-class_name WorldLevel extends Node2D
+class_name WorldLevel extends Control
 
+@export var level_display = "?"
+@export var name_display = "Unnamed Level"
 @onready var button: TextureButton = $Button
 var is_complete = false
+var is_unlocked = false
 
 var level: Level
 
-func open_level_menu():
+
+func _ready():
+	await %WorldLevels.levels_loaded
+	print(name, is_unlocked)
+
+
+func walk_to_level():
 	# menu here
-	load_level_scene()
 	
+	print("opening")
+	
+	
+	%MapTurtle.walk_to_world_level(self)
+
 
 func load_level_scene():
 	SceneLoader.play_sound("res://sound/success.wav")
@@ -26,7 +39,8 @@ func complete():
 
 
 func unlock():
-	button.button_down.connect(open_level_menu)
+	button.button_down.connect(walk_to_level)
+	is_unlocked = true
 	modulate = Color(0.356, 0.494, 0.767, 1.0)
 
 

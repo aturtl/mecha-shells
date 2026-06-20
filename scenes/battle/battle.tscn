@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b8yhmq41uvcqo" path="res://scenes/battle/health_bar.gd" id="8_py4tk"]
 [ext_resource type="Script" uid="uid://b4vrxn02fskda" path="res://scenes/battle/screen_win.gd" id="9_agsc7"]
 [ext_resource type="Script" uid="uid://bbscablhlusec" path="res://scenes/battle/screen_lose.gd" id="10_oiw7q"]
+[ext_resource type="Script" uid="uid://d4idexlyu0cgw" path="res://scenes/assembly/camera_focus.gd" id="11_fisqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a12nh"]
 size = Vector2(128.306, 126.592)
@@ -304,5 +305,11 @@ offset_bottom = 744.0
 texture_normal = ExtResource("1_0yh6x")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="CameraFocus" type="Node2D" parent="." unique_id=1541468634]
+position = Vector2(562, 312)
+script = ExtResource("11_fisqk")
+zoom = Vector2(0.7, 0.7)
+metadata/_custom_type_script = "uid://d4idexlyu0cgw"
 
 [connection signal="button_down" from="btn_world" to="btn_world" method="_on_button_down"]

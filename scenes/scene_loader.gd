@@ -2,7 +2,8 @@ extends Node
 
 
 var scene_holder: Node2D
-var loading_screen: Node2D
+var loading_screen: LoadingScreen
+var camera: GlobalCamera
 var global_sound_holder: Node2D
 
 var scene_path = ""
@@ -19,11 +20,21 @@ func reload_scene_holder():
 	instantiate_file_to_scene_holder(scene_path)
 
 
-func instantiate_scene_to_node(scene: PackedScene, parent: Node, top_level:bool = true, clear_node:bool = true):
+func get_camera():
+	return camera
+
+
+func instantiate_scene_to_node(scene: PackedScene, parent: Node, top_level:bool = true, clear_node:bool = true, clear_local: bool = true):
 	if clear_node:
 		for child in parent.get_children():
 			scene_holder.remove_child(child)
 			child.queue_free()
+	
+	if clear_local:
+		camera.clear_local()
+	
+	camera.reset()
+	
 	var instantiated = scene.instantiate()
 	if top_level:
 		instantiated.top_level = true

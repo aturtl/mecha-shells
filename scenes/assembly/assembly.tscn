@@ -6,28 +6,17 @@
 [ext_resource type="Script" uid="uid://ehl2mjgwbf1u" path="res://assembly/assembly_hand/assembly_hand.gd" id="3_q7ofn"]
 [ext_resource type="Texture2D" uid="uid://dqt8exjsvy4j1" path="res://assembly/assembly_hand/assembly_hand.png" id="4_c1tg4"]
 [ext_resource type="Texture2D" uid="uid://bmskc4idnkqna" path="res://icon.svg" id="5_db37m"]
+[ext_resource type="Script" uid="uid://c4277y7n1ja4i" path="res://scenes/world/camera_ui.gd" id="6_db37m"]
 [ext_resource type="Script" uid="uid://bpjmu34p7g2fn" path="res://scenes/assembly/switch.gd" id="6_q7ofn"]
 [ext_resource type="Script" uid="uid://bn8xjmftaluc1" path="res://scenes/loading_screen.gd" id="6_sfu06"]
 [ext_resource type="Script" uid="uid://bu6tlhwbqh7th" path="res://scenes/world/open_world.gd" id="7_wkeal"]
+[ext_resource type="Script" uid="uid://d4idexlyu0cgw" path="res://scenes/assembly/camera_focus.gd" id="11_sfu06"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3d87l"]
 radius = 1.41421
 
 [node name="TurtleAssembly" type="Node2D" unique_id=1036446128]
 script = ExtResource("1_db37m")
-
-[node name="Chassis" type="Node2D" parent="." unique_id=175706396]
-unique_name_in_owner = true
-position = Vector2(569, 329)
-script = ExtResource("1_ftk04")
-
-[node name="AttachmentsManager" type="Node" parent="." unique_id=1476605345 node_paths=PackedStringArray("head_list", "shell_list", "tail_list", "foot_list")]
-unique_name_in_owner = true
-script = ExtResource("2_wkeal")
-head_list = NodePath("../UI/AttachmentLayout/Head")
-shell_list = NodePath("../UI/AttachmentLayout/Shell")
-tail_list = NodePath("../UI/AttachmentLayout/Tail")
-foot_list = NodePath("../UI/AttachmentLayout/Foot")
 
 [node name="Hand" type="Node2D" parent="." unique_id=64550811]
 unique_name_in_owner = true
@@ -39,136 +28,36 @@ hand_default = ExtResource("4_c1tg4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/InteractArea" unique_id=543457512]
 shape = SubResource("CircleShape2D_3d87l")
 
-[node name="UI" type="Control" parent="." unique_id=666143073]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 569.0
-offset_top = 329.0
-offset_right = 569.0
-offset_bottom = 329.0
+[node name="ScreenUI" type="Node2D" parent="." unique_id=1765518533]
+physics_interpolation_mode = 2
+z_index = 40
+script = ExtResource("6_db37m")
+metadata/_custom_type_script = "uid://c4277y7n1ja4i"
 
-[node name="AttachmentBtns" type="Control" parent="UI" unique_id=1548473520]
-anchors_preset = 0
-offset_left = -541.0
-offset_top = 216.0
-offset_right = -13.0
-offset_bottom = 344.0
-scale = Vector2(1, 0.6)
-
-[node name="BtnHead" type="TextureButton" parent="UI/AttachmentBtns" unique_id=1271238935]
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
-texture_normal = ExtResource("5_db37m")
-
-[node name="BtnShell" type="TextureButton" parent="UI/AttachmentBtns" unique_id=220771169]
-layout_mode = 0
-offset_left = 132.0
-offset_right = 260.0
-offset_bottom = 128.0
-texture_normal = ExtResource("5_db37m")
-
-[node name="BtnTail" type="TextureButton" parent="UI/AttachmentBtns" unique_id=675496523]
-layout_mode = 0
-offset_left = 264.0
-offset_right = 392.0
-offset_bottom = 128.0
-texture_normal = ExtResource("5_db37m")
-
-[node name="BtnFoot" type="TextureButton" parent="UI/AttachmentBtns" unique_id=2120025895]
-layout_mode = 0
-offset_left = 396.0
-offset_right = 524.0
-offset_bottom = 128.0
-texture_normal = ExtResource("5_db37m")
-
-[node name="BtnInteract" type="TextureButton" parent="UI" unique_id=1878977897]
-layout_mode = 0
-offset_left = 223.0
-offset_top = 45.0
-offset_right = 554.0
-offset_bottom = 305.0
+[node name="BtnInteract" type="TextureButton" parent="ScreenUI" unique_id=1878977897]
+offset_left = 798.0
+offset_top = 371.0
+offset_right = 1129.0
+offset_bottom = 631.0
 texture_normal = ExtResource("5_db37m")
 stretch_mode = 0
 
-[node name="AttachmentLayout" type="Control" parent="UI" unique_id=1531399518]
-anchors_preset = 0
-offset_left = -541.0
-offset_top = 112.0
-offset_right = -541.0
-offset_bottom = 112.0
-
-[node name="ScrollBackground" type="TextureRect" parent="UI/AttachmentLayout" unique_id=1416172318]
-visible = false
-layout_mode = 0
-offset_right = 525.0
-offset_bottom = 94.0
-texture = ExtResource("5_db37m")
-expand_mode = 1
-
-[node name="Head" type="Control" parent="UI/AttachmentLayout" unique_id=2110363849]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ListHead" type="ScrollContainer" parent="UI/AttachmentLayout/Head" unique_id=587065860]
-layout_mode = 0
-offset_right = 525.0
-offset_bottom = 94.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/AttachmentLayout/Head/ListHead" unique_id=329362511]
-layout_mode = 2
-
-[node name="Tail" type="Control" parent="UI/AttachmentLayout" unique_id=1194557970]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ListTail" type="ScrollContainer" parent="UI/AttachmentLayout/Tail" unique_id=689360474]
-layout_mode = 0
-offset_right = 525.0
-offset_bottom = 94.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/AttachmentLayout/Tail/ListTail" unique_id=1789464329]
-layout_mode = 2
-
-[node name="Shell" type="Control" parent="UI/AttachmentLayout" unique_id=1610830992]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ListShell" type="ScrollContainer" parent="UI/AttachmentLayout/Shell" unique_id=156067536]
-layout_mode = 0
-offset_right = 525.0
-offset_bottom = 94.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/AttachmentLayout/Shell/ListShell" unique_id=1383972613]
-layout_mode = 2
-
-[node name="Foot" type="Control" parent="UI/AttachmentLayout" unique_id=130415070]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ListFoot" type="ScrollContainer" parent="UI/AttachmentLayout/Foot" unique_id=178633113]
-layout_mode = 0
-offset_right = 525.0
-offset_bottom = 94.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/AttachmentLayout/Foot/ListFoot" unique_id=1667142354]
-layout_mode = 2
-
-[node name="Switch" type="Button" parent="UI" unique_id=1727414416]
-layout_mode = 0
-offset_left = -148.0
-offset_top = -310.0
-offset_right = 149.0
-offset_bottom = -268.0
+[node name="Switch" type="Button" parent="ScreenUI" unique_id=1727414416]
+offset_left = 427.0
+offset_top = 16.0
+offset_right = 724.0
+offset_bottom = 58.0
 text = "Switch"
 script = ExtResource("6_q7ofn")
 
-[node name="Attachments" type="Node2D" parent="." unique_id=2115735469]
-unique_name_in_owner = true
+[node name="btn_world" type="Button" parent="ScreenUI" unique_id=446842618]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 177.0
+offset_bottom = 54.0
+text = "World
+"
+script = ExtResource("7_wkeal")
 
 [node name="LoadingScreen" type="Sprite2D" parent="." unique_id=1515218504]
 visible = false
@@ -176,18 +65,134 @@ scale = Vector2(21.7315, 7.2515)
 texture = ExtResource("5_db37m")
 script = ExtResource("6_sfu06")
 
-[node name="btn_world" type="Button" parent="." unique_id=446842618]
-offset_left = 10.0
-offset_top = 19.0
-offset_right = 171.0
-offset_bottom = 57.0
-text = "World
-"
-script = ExtResource("7_wkeal")
+[node name="Chassis" type="Node2D" parent="." unique_id=175706396]
+unique_name_in_owner = true
+position = Vector2(569, 329)
+script = ExtResource("1_ftk04")
 
-[connection signal="button_down" from="UI/AttachmentBtns/BtnHead" to="AttachmentsManager" method="_on_head_button_down"]
-[connection signal="button_down" from="UI/AttachmentBtns/BtnShell" to="AttachmentsManager" method="_on_shell_button_down"]
-[connection signal="button_down" from="UI/AttachmentBtns/BtnTail" to="AttachmentsManager" method="_on_tail_button_down"]
-[connection signal="button_down" from="UI/AttachmentBtns/BtnFoot" to="AttachmentsManager" method="_on_foot_button_down"]
-[connection signal="button_down" from="UI/Switch" to="UI/Switch" method="_on_button_down"]
-[connection signal="button_down" from="btn_world" to="btn_world" method="_on_button_down"]
+[node name="AttachmentsManager" type="Node" parent="." unique_id=1476605345 node_paths=PackedStringArray("head_list", "shell_list", "tail_list", "foot_list")]
+unique_name_in_owner = true
+script = ExtResource("2_wkeal")
+head_list = NodePath("../AttachmentLayout/Head")
+shell_list = NodePath("../AttachmentLayout/Shell")
+tail_list = NodePath("../AttachmentLayout/Tail")
+foot_list = NodePath("../AttachmentLayout/Foot")
+
+[node name="Attachments" type="Node2D" parent="." unique_id=2115735469]
+unique_name_in_owner = true
+
+[node name="AttachmentLayout" type="Control" parent="." unique_id=1531399518]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 34.0
+offset_top = 438.0
+offset_right = 34.0
+offset_bottom = 438.0
+
+[node name="ScrollBackground" type="TextureRect" parent="AttachmentLayout" unique_id=1416172318]
+visible = false
+layout_mode = 0
+offset_right = 525.0
+offset_bottom = 94.0
+texture = ExtResource("5_db37m")
+expand_mode = 1
+
+[node name="Head" type="Control" parent="AttachmentLayout" unique_id=2110363849]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ListHead" type="ScrollContainer" parent="AttachmentLayout/Head" unique_id=587065860]
+layout_mode = 0
+offset_right = 525.0
+offset_bottom = 94.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AttachmentLayout/Head/ListHead" unique_id=329362511]
+layout_mode = 2
+
+[node name="Tail" type="Control" parent="AttachmentLayout" unique_id=1194557970]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ListTail" type="ScrollContainer" parent="AttachmentLayout/Tail" unique_id=689360474]
+layout_mode = 0
+offset_right = 525.0
+offset_bottom = 94.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AttachmentLayout/Tail/ListTail" unique_id=1789464329]
+layout_mode = 2
+
+[node name="Shell" type="Control" parent="AttachmentLayout" unique_id=1610830992]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ListShell" type="ScrollContainer" parent="AttachmentLayout/Shell" unique_id=156067536]
+layout_mode = 0
+offset_right = 525.0
+offset_bottom = 94.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AttachmentLayout/Shell/ListShell" unique_id=1383972613]
+layout_mode = 2
+
+[node name="Foot" type="Control" parent="AttachmentLayout" unique_id=130415070]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ListFoot" type="ScrollContainer" parent="AttachmentLayout/Foot" unique_id=178633113]
+layout_mode = 0
+offset_right = 525.0
+offset_bottom = 94.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AttachmentLayout/Foot/ListFoot" unique_id=1667142354]
+layout_mode = 2
+
+[node name="AttachmentBtns" type="Control" parent="." unique_id=1548473520]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 34.0
+offset_top = 542.0
+offset_right = 562.0
+offset_bottom = 670.0
+scale = Vector2(1, 0.6)
+
+[node name="BtnHead" type="TextureButton" parent="AttachmentBtns" unique_id=1271238935]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture_normal = ExtResource("5_db37m")
+
+[node name="BtnShell" type="TextureButton" parent="AttachmentBtns" unique_id=220771169]
+layout_mode = 0
+offset_left = 132.0
+offset_right = 260.0
+offset_bottom = 128.0
+texture_normal = ExtResource("5_db37m")
+
+[node name="BtnTail" type="TextureButton" parent="AttachmentBtns" unique_id=675496523]
+layout_mode = 0
+offset_left = 264.0
+offset_right = 392.0
+offset_bottom = 128.0
+texture_normal = ExtResource("5_db37m")
+
+[node name="BtnFoot" type="TextureButton" parent="AttachmentBtns" unique_id=2120025895]
+layout_mode = 0
+offset_left = 396.0
+offset_right = 524.0
+offset_bottom = 128.0
+texture_normal = ExtResource("5_db37m")
+
+[node name="CameraFocus" type="Node2D" parent="." unique_id=1955007298]
+position = Vector2(535, 329)
+script = ExtResource("11_sfu06")
+metadata/_custom_type_script = "uid://d4idexlyu0cgw"
+
+[connection signal="button_down" from="ScreenUI/Switch" to="ScreenUI/Switch" method="_on_button_down"]
+[connection signal="button_down" from="ScreenUI/btn_world" to="ScreenUI/btn_world" method="_on_button_down"]
+[connection signal="button_down" from="AttachmentBtns/BtnHead" to="AttachmentsManager" method="_on_head_button_down"]
+[connection signal="button_down" from="AttachmentBtns/BtnShell" to="AttachmentsManager" method="_on_shell_button_down"]
+[connection signal="button_down" from="AttachmentBtns/BtnTail" to="AttachmentsManager" method="_on_tail_button_down"]
+[connection signal="button_down" from="AttachmentBtns/BtnFoot" to="AttachmentsManager" method="_on_foot_button_down"]

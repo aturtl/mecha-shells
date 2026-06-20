@@ -3,21 +3,44 @@
 [ext_resource type="Script" uid="uid://bf6gm8qo401wi" path="res://scenes/scene_holder/scene_holder.gd" id="1_ttgl8"]
 [ext_resource type="Script" uid="uid://btmtou4spalfg" path="res://scenes/scene_holder/loading_screen.gd" id="2_dgol8"]
 [ext_resource type="Texture2D" uid="uid://bmskc4idnkqna" path="res://icon.svg" id="2_scd1s"]
+[ext_resource type="Script" uid="uid://d4jy77ewuuy27" path="res://scenes/scene_holder/global_camera.gd" id="2_v4cdt"]
 
-[node name="Tree2" type="Node2D" unique_id=1495002840]
+[node name="Tree2" type="Node2D" unique_id=1495002840 node_paths=PackedStringArray("loading_screen")]
 script = ExtResource("1_ttgl8")
+loading_screen = NodePath("GlobalCamera/Global/LoadingScreen")
 
-[node name="LoadingScreen" type="Node2D" parent="." unique_id=1781979277]
+[node name="Scene" type="Node2D" parent="." unique_id=776871889]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1178410322]
+
+[node name="GlobalSound" type="Node2D" parent="." unique_id=967233190]
+
+[node name="GlobalCamera" type="Camera2D" parent="." unique_id=347640559]
+script = ExtResource("2_v4cdt")
+metadata/_custom_type_script = "uid://d4jy77ewuuy27"
+
+[node name="Local" type="Node2D" parent="GlobalCamera" unique_id=123546939]
+
+[node name="Global" type="Node2D" parent="GlobalCamera" unique_id=1660200297]
+
+[node name="LoadingScreen" type="Control" parent="GlobalCamera/Global" unique_id=769146640]
 z_index = 100
+layout_mode = 3
+anchors_preset = 0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
 script = ExtResource("2_dgol8")
 
-[node name="Slider" type="TextureRect" parent="LoadingScreen" unique_id=94630360]
+[node name="Slider" type="TextureRect" parent="GlobalCamera/Global/LoadingScreen" unique_id=94630360]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_scd1s")
 expand_mode = 1
 
-[node name="Slider2" type="TextureRect" parent="LoadingScreen/Slider" unique_id=96482019]
+[node name="Slider2" type="TextureRect" parent="GlobalCamera/Global/LoadingScreen/Slider" unique_id=96482019]
 layout_mode = 0
 offset_left = -55.0
 offset_top = -49.0
@@ -25,9 +48,3 @@ offset_right = 1212.115
 offset_bottom = 707.095
 texture = ExtResource("2_scd1s")
 expand_mode = 1
-
-[node name="Scene" type="Node2D" parent="." unique_id=776871889]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1178410322]
-
-[node name="GlobalSound" type="Node2D" parent="." unique_id=967233190]

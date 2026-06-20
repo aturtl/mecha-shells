@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="DefaultStats" format=3]
+[gd_resource type="Resource" script_class="DefaultStats" format=3 uid="uid://snab3wp7247m"]
 
-[ext_resource type="Script" path="res://data/stats/default_stats.gd" id="1_iyyp5"]
+[ext_resource type="Script" uid="uid://b5frhpb7rw53a" path="res://data/stats/default_stats.gd" id="1_iyyp5"]
 
 [resource]
 script = ExtResource("1_iyyp5")
 equipped_chassis = "turtle_chassis"
-owned_attachments = [["prototype_head", -1], ["prototype_foot", -1], ["prototype_foot", -1], ["prototype_shell", -1], ["prototype_tail", -1], ["turtle_head", -1], ["turtle_legs", -1], ["turtle_legs", -1], ["turtle_shell", -1], ["turtle_tail", -1], ["mace_tail", -1], ["tank_shell", -1], ["tank_wheel", 1], ["tank_wheel", 2], ["scorpion_tail", 3], ["dragon_tail", -1], ["dragon_foot", -1], ["dragon_foot", -1], ["dragon_head", 0], ["file_shell", -1], ["apple_shell", -1]]
+owned_attachments = [["prototype_head", -1], ["prototype_foot", -1], ["prototype_foot", -1], ["prototype_shell", -1], ["prototype_tail", -1], ["turtle_head", -1], ["turtle_legs", -1], ["turtle_legs", -1], ["turtle_shell", -1], ["turtle_tail", -1], ["mace_tail", -1], ["tank_shell", 4], ["tank_wheel", -1], ["tank_wheel", -1], ["scorpion_tail", 3], ["dragon_tail", -1], ["dragon_foot", 1], ["dragon_foot", 2], ["dragon_head", 0], ["file_shell", -1], ["apple_shell", -1]]
 unlocked_levels = ["factory1", "factory2"]
+completed_levels = [null]
