@@ -46,6 +46,8 @@ var looping = true
 
 var bounce_cd = 0
 
+var activated = false
+
 func on_death():
 	looping = false
 	death.emit()
@@ -72,7 +74,13 @@ func _ready():
 	
 	setup_actions()
 	set_behavior_variables()
-	
+
+
+func activate():
+	begin_action_timer()
+	activated = true
+
+
 func begin_action_timer():
 	add_child(action_timer)
 	action_timer.timeout.connect(_on_action_timeout)
@@ -80,6 +88,9 @@ func begin_action_timer():
 
 
 func _physics_process(delta):
+	if !activated:
+		return
+	
 	if bounce_cd > 0:
 		bounce_cd -= 1
 	

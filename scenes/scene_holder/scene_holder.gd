@@ -16,3 +16,4 @@ func _ready():
 	SceneLoader.global_sound_holder = global_sound_holder
 	SceneLoader.instantiate_scene_to_node(initial_scene, scene)
 	SceneLoader.loading_screen_hide(.5)
+	SceneLoader.play_music("res://music/sunshine.mp3")

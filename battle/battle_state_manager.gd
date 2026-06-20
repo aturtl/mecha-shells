@@ -31,6 +31,14 @@ var shake_amount: int = 0
 func _ready():
 	read_level_info()
 
+	build_mechs()
+	setup_displays()
+	
+	spawn_mechs()
+	
+	await SceneLoader.wait(4.0)
+	await SceneLoader.loading_screen_hide(.5)
+	
 	start_battle()
 	
 	if display_action_statuses:
@@ -53,9 +61,7 @@ func start_battle():
 		instant_lose = false
 		instant_win = false
 	
-	build_mechs()
-	setup_displays()
-	spawn_mechs()
+	activate_mechs()
 	
 	if instant_win:
 		e_mech.mech_stats.damage(10000000)
@@ -97,8 +103,11 @@ func build_mechs():
 func spawn_mechs():
 	add_child(p_mech)
 	add_child(e_mech)
-	p_mech.begin_action_timer()
-	e_mech.begin_action_timer()
+
+
+func activate_mechs():
+	p_mech.activate()
+	e_mech.activate()
 
 
 func create_mech(setup: MechSetup, spawnpoint: Vector2):

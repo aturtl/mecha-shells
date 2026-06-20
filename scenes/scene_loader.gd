@@ -79,6 +79,10 @@ func play_music(path, delay = 0.0, vol_db = 0.0):
 	global_music.play(0.0)
 
 
+func stop_music():
+	global_music.stop()
+
+
 func play_sound(path, delay = 0.0, vol_db = 0.0):
 	await wait(delay)
 	var audio = AudioStreamPlayer2D.new()

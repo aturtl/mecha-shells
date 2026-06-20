@@ -15,7 +15,8 @@ func load_level_scene():
 	LevelInfo.enemy_id = level.enemy_id
 	#level.location
 	#get_tree().change_scene_to_file("res://scenes/battle/battle.tscn")
-	SceneLoader.instantiate_file_with_loading_screen("res://scenes/battle/battle.tscn")
+	SceneLoader.play_music("res://music/chainsaws.mp3", .5, -.3)
+	SceneLoader.instantiate_file_with_loading_screen_shown("res://scenes/battle/battle.tscn")
 
 
 func complete():

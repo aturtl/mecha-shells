@@ -105,7 +105,9 @@ GODOT WILD JAM DEVLOG
 
 6/19:
 	- Created music for assembly "screw loose"
-	- Sounds
+	- Interaction Sounds
 		- Menu selection sounds
 		- Drag and drop
 		- Chassis switch
+	- Music for battle "chainsaws"
+	- Environmental sounds for world "sunshine"
