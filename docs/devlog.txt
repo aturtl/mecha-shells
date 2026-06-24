@@ -142,3 +142,7 @@ GODOT WILD JAM DEVLOG
 		- Jump At does damage
 		- Added basic levels to play through
 		- Tutorial hint at start
+
+
+6/23:
+	- Created itch.io thumbnail art

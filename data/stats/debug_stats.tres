@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DefaultStats" format=3]
+
+[ext_resource type="Script" path="res://data/stats/default_stats.gd" id="1_iyyp5"]
+
+[resource]
+script = ExtResource("1_iyyp5")
+equipped_chassis = "ant_chassis"
+owned_attachments = [["turtle_head", 0], ["turtle_legs", 1], ["turtle_legs", 2], ["turtle_shell", -1], ["turtle_tail", -1], ["tank_shell", -1], ["tank_wheel", -1], ["tank_wheel", -1], ["scorpion_tail", -1], ["dragon_tail", 3], ["dragon_foot", -1], ["dragon_foot", -1], ["dragon_head", -1], ["file_shell", 4], ["apple_shell", -1]]
+completed_levels = [&"factory1"]
